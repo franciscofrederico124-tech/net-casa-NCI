@@ -47,6 +47,7 @@ app.post("/system/getstatus", (req, res) => {
   const { one, two } = req.body;
   
   console.log("Dados: ", req.body);
+  
   systemBulb = {
     "one": one,
     "two": two,
