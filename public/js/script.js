@@ -23,7 +23,7 @@ catch(error)
 }
 }
 
-{async () => { Send() }}
+ Send()
 
 async function toggleLamp(id) {
 
@@ -45,7 +45,7 @@ async function toggleLamp(id) {
       `lamp${id}-btn`
     );
     
-  await Send()
+   Send()
   
   if (lamps[id]) {
 
