@@ -1,8 +1,8 @@
 // public/js/script.js
 
 const lamps = {
-  1: true,
-  2: true
+  1: false,
+  2: false
 };
 
 
@@ -25,56 +25,23 @@ async function toggleLamp(id) {
     document.getElementById(
       `lamp${id}-btn`
     );
-
-
-  // =========================================
-  // AQUI ENTRA A LÓGICA DE CONSUMO DA API 🚀
-  // =========================================
-
-  /*
-  
-  Exemplo:
-
+    
   try {
-
-    const response = await fetch(
-      "/lamp/control",
-      {
-        method: "POST",
-
-        headers: {
-          "Content-Type": "application/json"
-        },
-
-        body: JSON.stringify({
-          lamp: id,
-          state: lamps[id]
-        })
-      }
-    );
-
-    const data = await response.json();
-
-    console.log(data);
-
+    const lampStatus = {
+      "on": lamps[1],
+      "two": lamps[2]
+    }
+    const res = await fetch("/system/getstatus", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ data: lampStatus })
+    })
   }
-
-  catch (e) {
-
-    console.log(
-      "Erro ao enviar estado:",
-      e
-    );
-
+  catch(error)
+  {
+    console.log("Erro: ", error);
   }
-
-  */
-
-
-  // =========================================
-  // ALTERAÇÃO VISUAL
-  // =========================================
-
+  
   if (lamps[id]) {
 
     icon.classList.add("active");
