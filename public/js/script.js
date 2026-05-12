@@ -5,6 +5,20 @@ const lamps = {
   2: false
 };
 
+try {
+  const data = await fetch("/system/getstatus", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ one: lamps[1], two: lamps[2] })
+  })
+    
+  const res = await data.json();
+}
+catch(error)
+{
+  console.log("Erro: ", error);
+}
+
 
 async function toggleLamp(id) {
 
