@@ -5,7 +5,10 @@ const lamps = {
   2: false
 };
 
-try {
+
+async function Send()
+{
+  try {
   const data = await fetch("/system/getstatus", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -18,7 +21,9 @@ catch(error)
 {
   console.log("Erro: ", error);
 }
+}
 
+{async () => { Send() }}
 
 async function toggleLamp(id) {
 
@@ -40,20 +45,7 @@ async function toggleLamp(id) {
       `lamp${id}-btn`
     );
     
-  try {
-    
-    const data = await fetch("/system/getstatus", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ one: lamps[1], two: lamps[2] })
-    })
-    
-    const res = await data.json();
-  }
-  catch(error)
-  {
-    console.log("Erro: ", error);
-  }
+  await Send()
   
   if (lamps[id]) {
 
