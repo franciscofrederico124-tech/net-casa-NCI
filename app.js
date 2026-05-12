@@ -6,6 +6,11 @@ const app = express();
 
 app.use(express.json());
 
+let systemBulb = {
+  "on": false,
+  "two": false,
+}
+
 app.use(
   express.static(
     path.join(__dirname, "public")
@@ -34,6 +39,9 @@ app.get("/", (req, res) => {
   res.render("app");
 });
 
+app.get("/system/esp32", (req, res) => {
+  return res.json(systemBulb);
+})
 
 const PORT = process.env.PORT || 3000;
 
