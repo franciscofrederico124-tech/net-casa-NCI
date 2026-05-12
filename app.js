@@ -43,6 +43,18 @@ app.get("/system/esp32", (req, res) => {
   return res.json(systemBulb);
 })
 
+app.post("/system/getstatus", (req, res) => {
+  const { one, two } = req.body;
+  
+  console.log("Dados: ", req.body);
+  systemBulb = {
+    "one": one,
+    "two": two,
+  }
+  
+  return res.json({ success: true})
+})
+
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {

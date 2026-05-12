@@ -27,15 +27,14 @@ async function toggleLamp(id) {
     );
     
   try {
-    const lampStatus = {
-      "on": lamps[1],
-      "two": lamps[2]
-    }
-    const res = await fetch("/system/getstatus", {
+    
+    const data = await fetch("/system/getstatus", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ data: lampStatus })
+      body: JSON.stringify({ one: lamps[1], two: lamps[2] })
     })
+    
+    const res = await data.json();
   }
   catch(error)
   {
