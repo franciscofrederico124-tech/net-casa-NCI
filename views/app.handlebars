@@ -1,0 +1,123 @@
+<!-- views/home.handlebars -->
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Painel IoT</title>
+
+  <!-- Bootstrap -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+
+  <!-- Bootstrap Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+  >
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+  <main class="container-fluid app">
+
+    <div class="overlay"></div>
+
+    <section class="panel shadow-lg">
+
+      <div class="header">
+
+        <div>
+          <h1>
+            <i class="bi bi-cpu"></i>
+            Smart Light Control
+          </h1>
+
+          <p>
+            Controle inteligente de iluminação ⚡
+          </p>
+        </div>
+
+        <div class="status-online">
+          <span></span>
+          Online
+        </div>
+
+      </div>
+
+
+      <div class="row g-4 mt-2">
+
+        <!-- Lâmpada 1 -->
+        <div class="col-md-6">
+
+          <div class="lamp-card">
+
+            <div class="lamp-icon active" id="lamp1-icon">
+              <i class="bi bi-lightbulb-fill"></i>
+            </div>
+
+            <h2>Lâmpada 1</h2>
+
+            <p id="lamp1-status">
+              Ligada
+            </p>
+
+            <button
+              class="btn-control active"
+              id="lamp1-btn"
+              onclick="toggleLamp(1)"
+            >
+              Desligar
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- Lâmpada 2 -->
+        <div class="col-md-6">
+
+          <div class="lamp-card">
+
+            <div class="lamp-icon active" id="lamp2-icon">
+              <i class="bi bi-lightbulb-fill"></i>
+            </div>
+
+            <h2>Lâmpada 2</h2>
+
+            <p id="lamp2-status">
+              Ligada
+            </p>
+
+            <button
+              class="btn-control active"
+              id="lamp2-btn"
+              onclick="toggleLamp(2)"
+            >
+              Desligar
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <script src="/js/script.js"></script>
+
+</body>
+</html>
